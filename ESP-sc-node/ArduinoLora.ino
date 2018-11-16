@@ -103,18 +103,6 @@ void do_send(osjob_t* j)
     display.drawString(0, 20, "Humidity  : ");
     display.drawString(90,20, String(newValues.humidity));
     display.display();    
-
-#if 0    
-    // Now for GPS
-    if (GPS.fix)
-    {
-      float lat = GPS.latitudeDegrees;
-      float lon = GPS.longitudeDegrees;
-      float alt = GPS.geoidheight;
-      Serial.printf("GPS lat = %.2f, lon = %.2f, alt = %.2f\n", lat, lon, alt);
-      lpp.addGPS(3, lat, lon, alt);
-    }
-#endif
     // Prepare upstream data transmission at the next possible time.
     LMIC_setTxData2(1, lpp.getBuffer(), lpp.getSize(), 0);
          
@@ -126,38 +114,7 @@ void do_send(osjob_t* j)
 void setup() 
 {
   Serial.begin(115200);
-  gpsSerial.begin(115200, SERIAL_8N1, SERIAL1_RXPIN, SERIAL1_TXPIN);
   Serial.printf("Starting...\r\n");
-
-
-  pinMode(16,OUTPUT);
-  digitalWrite(16, LOW); // set GPIO16 low to reset OLED
-  delay(50);
-  digitalWrite(16, HIGH);
-  display.init();
-  display.setFont(ArialMT_Plain_10);
-  
-  dht.setup(dhtPin, DHTesp::DHT11);
-  
-#if 0
-  // 9600 NMEA is the default baud rate for Adafruit MTK GPS's- some use 4800
-  GPS.begin(9600);
-  
-  // uncomment this line to turn on RMC (recommended minimum) and GGA (fix data) including altitude
-  GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);
-  // uncomment this line to turn on only the "minimum recommended" data
-  //GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCONLY);
-  // For parsing data, we don't suggest using anything but either RMC only or RMC+GGA since
-  // the parser doesn't care about other sentences at this time
-  
-  // Set the update rate
-  GPS.sendCommand(PMTK_SET_NMEA_UPDATE_1HZ);   // 1 Hz update rate
-  // For the parsing code to work nicely and have time to sort thru the data, and
-  // print it out we don't suggest using anything higher than 1 Hz
-
-  // Request updates on antenna status, comment out to keep quiet
-  GPS.sendCommand(PGCMD_ANTENNA);
-#endif
   
   // LMIC init
   os_init();
@@ -184,25 +141,7 @@ void setup()
 }
 
 void loop() 
-{
-#if 0
-  char c = GPS.read();
-  // if you want to debug, this is a good time to do it!
-  //if ((c) && (GPSECHO))
-  //  Serial.write(c);
-     
-   // if a sentence is received, we can check the checksum, parse it...
-  if (GPS.newNMEAreceived()) 
-  {
-    // a tricky thing here is if we print the NMEA sentence, or data
-    // we end up not listening and catching other sentences! 
-    // so be very wary if using OUTPUT_ALLDATA and trytng to print out data
-    //Serial.println(GPS.lastNMEA());   // this also sets the newNMEAreceived() flag to false
-  
-    if (!GPS.parse(GPS.lastNMEA()))   // this also sets the newNMEAreceived() flag to false
-      ; //return;  // we can fail to parse a sentence in which case we should just wait for another
-  } 
-#endif    
+{  
   // Make sure LMIC is ran too
   os_runloop_once();
 }
