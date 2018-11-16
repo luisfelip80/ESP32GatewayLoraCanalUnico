@@ -193,8 +193,8 @@
 #define _DESCRIPTION "My ESP32 Gateway"
 #define _EMAIL "lfms@cin.ufpe.br"
 #define _PLATFORM "ESP32"
-#define _LAT -8.04376554
-#define _LON -34.94699926
+#define _LAT -85.04376554
+#define _LON -3.94699926
 #define _ALT 8
 
 // ntp
@@ -241,7 +241,7 @@ struct wpas {
 //
 wpas wpa[] = {
     { "" , "" },							// Reserved for WiFi Manager
-    { "VIVO-DED2", "J609252777" },
+    { "wi-fi login", "senha" },
     { "", "" }
 };
 
