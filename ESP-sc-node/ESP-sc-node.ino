@@ -1,6 +1,4 @@
 #include <CayenneLPP.h>
-#include <DHTesp.h>
-#include <Adafruit_GPS.h>
 #include <HardwareSerial.h>
 #include <lmic.h>
 #include <hal/hal.h>
