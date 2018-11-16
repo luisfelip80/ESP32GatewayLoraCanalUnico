@@ -1,6 +1,6 @@
 # ESP32SingleChannelGateway
-A Fork of the popular ESP8266 single channel gateway adapted to ESP32 on the 915Mhz band.
+Um Fork do popular ESP8266 gateway canal único adaptado para ESP32 na frequência de 915Mhz banda.
 
-# Instructions
-- Copy the libraries to your ~/Documents/Arduino/libraries (staging folder)
-- For the lora node, check the lmic config.h file make sure to enable 915Mhz band only.
+# Instruções
+- Copie as bibliotecas para ~/Documentos/Arduino/libraries
+- Para o nó lora, verifique na biblioteca lmic o arquivo config.h e tenha certeza que a banda está em 915Mhz apenas.
