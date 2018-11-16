@@ -8,15 +8,15 @@ Um Fork do popular ESP8266 gateway canal único adaptado para ESP32 na frequênc
 # Traduzir depois:
 - Original: https://ldsrc.blogspot.com/2018/01/lorawan-working-example-from-network.html
 Just listing the things I did to get it working (hopefully useful for others)
-install Arduino IDE https://www.arduino.cc/en/Main/Software3
-install ESP8266 core as per github https://github.com/esp8266/Arduino6
-install ESP32 core as per github https://github.com/espressif/arduino-esp3210
-Execute the Arduino IDE and goto “File->Preferences” and make a note of the “Sketchbook Location”. This is the “stub” folder which you will reference when loading folders/files (we will call it STUB from now on) It is usually something like “C:\Users???\Documents\arduino”.
-Download ZIP file from https://github.com/kersing/ESP-1ch-Gateway-v5.025
-Extract the ZIP file (preferably using 7-zip http://www.7-zip.org/1 )
-Copy everything from the extracted file folder “libraries” and paste into STUB\libraries"
-Copy folder “ESP-sc-gway” from the zip file and paste into “STUB\libraries”
-Go to “STUB\libraries\ESP-sc-gway\ESP-sc-gway.h” and alter the code using “wordpad”.
+- install Arduino IDE https://www.arduino.cc/en/Main/Software3
+- install ESP8266 core as per github https://github.com/esp8266/Arduino6
+- install ESP32 core as per github https://github.com/espressif/arduino-esp3210
+- Execute the Arduino IDE and goto “File->Preferences” and make a note of the “Sketchbook Location”. This is the “stub” folder which you will reference when loading folders/files (we will call it STUB from now on) It is usually something like “C:\Users???\Documents\arduino”.
+- Download ZIP file from https://github.com/kersing/ESP-1ch-Gateway-v5.025
+- Extract the ZIP file (preferably using 7-zip http://www.7-zip.org/1 )
+- Copy everything from the extracted file folder “libraries” and paste into STUB\libraries"
+- Copy folder “ESP-sc-gway” from the zip file and paste into “STUB\libraries”
+- Go to “STUB\libraries\ESP-sc-gway\ESP-sc-gway.h” and alter the code using “wordpad”.
 You need to update the following 3 sections
 1 Gateway Ident definitions
 (description, Lat long)
