@@ -5,8 +5,8 @@ Um Fork do popular ESP8266 gateway canal único adaptado para ESP32 na frequênc
 - Copie as bibliotecas(libraries) para ~/Documentos/Arduino/libraries
 - Para o nó lora, verifique na biblioteca lmic o arquivo config.h e tenha certeza que a banda está em 915Mhz apenas.
 
-#Traduzir depois:
-Original: https://ldsrc.blogspot.com/2018/01/lorawan-working-example-from-network.html
+# Traduzir depois:
+- Original: https://ldsrc.blogspot.com/2018/01/lorawan-working-example-from-network.html
 Just listing the things I did to get it working (hopefully useful for others)
 install Arduino IDE https://www.arduino.cc/en/Main/Software3
 install ESP8266 core as per github https://github.com/esp8266/Arduino6
