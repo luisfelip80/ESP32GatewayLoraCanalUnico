@@ -391,4 +391,3 @@ struct LoraUp {
 #define MGT_RESET					0x15	// Not a LoRa Gateway Spec message
 #define MGT_SET_SF					0x16
 #define MGT_SET_FREQ				0x17
-

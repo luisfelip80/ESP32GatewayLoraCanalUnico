@@ -527,4 +527,3 @@ int receivePacket()
 	return(0);											// failure no message read
 	
 }//receivePacket
-

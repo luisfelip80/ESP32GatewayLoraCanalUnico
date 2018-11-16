@@ -1449,5 +1449,3 @@ void ICACHE_RAM_ATTR Interrupt_2()
 {
 	_event = 1;
 }
-
-

@@ -46,5 +46,3 @@ struct espGwayConfig {
 	String ssid;				// SSID of the last connected WiFi Network
 	String pass;				// Password
 } gwayConfig;
-
-
