@@ -1,10 +1,9 @@
 # Single Channel Gateway Usando Heltec WiFi LoRa 32 (Com OLED display)
 
-
-<https://github.com/luisfelip80/ESP32GatewayLoraCanalUnico<>
+[Arquivos](https://github.com/luisfelip80/ESP32GatewayLoraCanalUnico)
 
 # Traduzido de:
-- Original: https://ldsrc.blogspot.com/2018/01/lorawan-working-example-from-network.html
+- [Original](https://ldsrc.blogspot.com/2018/01/lorawan-working-example-from-network.html)
 
 # ESP32SingleChannelGateway
 Um Fork do popular ESP8266 gateway canal único adaptado para ESP32 na frequência de 915Mhz banda.
@@ -15,9 +14,9 @@ Um Fork do popular ESP8266 gateway canal único adaptado para ESP32 na frequênc
 
 # 1) Single Channel Gateway Usando Heltec WiFi LoRa 32 (Com OLED display)
 "Apenas leia as coisas que eu fiz para que isso funcionasse (Espero que funciona para os outros)
-	- Instale o Arduino IDE https://www.arduino.cc/en/Main/Software3
-	- Instale ESP8266 core em github https://github.com/esp8266/Arduino6
-	- Instale ESP32 core em github https://github.com/espressif/arduino-esp3210
+	- [Instale o Arduino IDE](https://www.arduino.cc/en/Main/Software3)
+	- [Instale ESP8266 core em github](https://github.com/esp8266/Arduino6)
+	- [Instale ESP32 core em github](https://github.com/espressif/arduino-esp3210)
 	- Execute o Arduino IDE e vá em “File → Preferences” (Arquivos → Preferências) e faça uma anotação da “Localização do Sketchbook”. Guarde esse “local”  para ser usada depois quando for carregar as pastas. Ele é algo como “C:\Users\...\Documents\arduino”. No Windows, ou “/home/User/.../Arduino” no Linux.
 	- Extraia o Zip.
 	- Copie tudo da pasta extraída “libraries” e cole no “local/libraries”.
@@ -29,7 +28,7 @@ Um Fork do popular ESP8266 gateway canal único adaptado para ESP32 na frequênc
 (descrição, Lat (latitude),  long (longitude))
 
 2 ntp
-(Mude a zona de tempo NTP_TIMESERVER “uk.pool.ntp.org” para UK, para serves no Brasil veja https://ntp.br/  e mude NTP_TIMEZONES 0
+(Mude a zona de tempo NTP_TIMESERVER “uk.pool.ntp.org” para UK, para serves no [Brasil veja](https://ntp.br/)  e mude NTP_TIMEZONES 0
 
 3 Definição de  wpas wpa[]
 
@@ -65,7 +64,7 @@ Mude outras coisas como frequência e salve (Aqui usados a 915).
 
 # 2) Exemplos de Código TX para HelTec Lora (para usar junto com Gateway)
 
-Essa biblioteca já deve estar na pasta de bibliotecas, mas caso dê algum erro de compilação, tente isso: Baixe a pasta Zip do LMIC em https://github.com/matthijskooijman/arduino-lmic8
+Essa biblioteca já deve estar na pasta de bibliotecas, mas caso dê algum erro de compilação, tente isso: Baixe a pasta Zip do LMIC https://github.com/matthijskooijman/arduino-lmic8
 
 Extraia e renomeie a pasta “arduino-lmic-master” para “arduino-lmic” (isso pode ser um clash com outras versões da biblioteca “LMIC”)
 
