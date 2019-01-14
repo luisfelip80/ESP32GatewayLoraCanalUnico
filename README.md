@@ -33,7 +33,7 @@ Um Fork do popular ESP8266 gateway canal único adaptado para ESP32 na frequênc
 3 Definição de  wpas wpa[]
 
 NO CÓDIGO VOCÊ VAI ENCONTRAR  ISSO:
-
+```
 #if 0
 wpas wpa[] = {
 { “” , “” }, // Reserved for WiFi Manager
@@ -44,15 +44,15 @@ wpas wpa[] = {
 Place outside version control to avoid the risk of commiting it to github :wink:
 #include “d:\arduino\wpa.h”
 #endif
-
+```
 MUDE PARA ISSO(mude também o WiFi e senha, também tire o if-else-endif):
-
+```
 wpas wpa[] = {
 { "" , "" }, // Reserved for WiFi Manager
 { "SEU WIFI SSID", "SUA SENHA DO WIFI SSID" },
 {"",""}
 };
-
+```
 Execute a IDE do Arduino.
 
 Upload o sketch via “File→Exemples→ESP-sc-gway”. Ou vá na pasta “local/libraries/ESP-sc-gway” e abra o arquivo “ESP-sc-gway.ino”. Coloque a porta certa da placa e faça o upload para seu Heltec WiFi LoRa 32 device, (Quando o aparelho fizer o re-boot, você vai ver a informação no display OLED).
