@@ -1,6 +1,6 @@
 # Single Channel Gateway Usando Heltec WiFi LoRa 32 (Com OLED display)
 
-[Arquivos](https://github.com/luisfelip80/ESP32GatewayLoraCanalUnico)
+- [Arquivos](https://github.com/luisfelip80/ESP32GatewayLoraCanalUnico)
 
 # Traduzido de:
 - [Original](https://ldsrc.blogspot.com/2018/01/lorawan-working-example-from-network.html)
