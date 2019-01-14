@@ -14,14 +14,14 @@ Um Fork do popular ESP8266 gateway canal único adaptado para ESP32 na frequênc
 
 # 1) Single Channel Gateway Usando Heltec WiFi LoRa 32 (Com OLED display)
 "Apenas leia as coisas que eu fiz para que isso funcionasse (Espero que funciona para os outros)
-	- [Instale o Arduino IDE](https://www.arduino.cc/en/Main/Software3)
-	- [Instale ESP8266 core em github](https://github.com/esp8266/Arduino6)
-	- [Instale ESP32 core em github](https://github.com/espressif/arduino-esp3210)
-	- Execute o Arduino IDE e vá em “File → Preferences” (Arquivos → Preferências) e faça uma anotação da “Localização do Sketchbook”. Guarde esse “local”  para ser usada depois quando for carregar as pastas. Ele é algo como “C:\Users\...\Documents\arduino”. No Windows, ou “/home/User/.../Arduino” no Linux.
-	- Extraia o Zip.
-	- Copie tudo da pasta extraída “libraries” e cole no “local/libraries”.
-	- Copie as pastas “ESP-sc-gway” e “ESP-sc-node” da pasta Zip e cole em “local/libraries”
-	- Vá para “local/libraries/ESP-sc-gway.h” e altere o código usando um editor de texto. Você precisa mudar as 3 seguintes partes:
+- [Instale o Arduino IDE](https://www.arduino.cc/en/Main/Software3)
+- [Instale ESP8266 core em github](https://github.com/esp8266/Arduino6)
+- [Instale ESP32 core em github](https://github.com/espressif/arduino-esp3210)
+- Execute o Arduino IDE e vá em “File → Preferences” (Arquivos → Preferências) e faça uma anotação da “Localização do Sketchbook”. Guarde esse “local”  para ser usada depois quando for carregar as pastas. Ele é algo como “C:\Users\...\Documents\arduino”. No Windows, ou “/home/User/.../Arduino” no Linux.
+- Extraia o Zip.
+- Copie tudo da pasta extraída “libraries” e cole no “local/libraries”.
+- Copie as pastas “ESP-sc-gway” e “ESP-sc-node” da pasta Zip e cole em “local/libraries”
+- Vá para “local/libraries/ESP-sc-gway.h” e altere o código usando um editor de texto. Você precisa mudar as 3 seguintes partes:
 
 
 1 Local do gateway
