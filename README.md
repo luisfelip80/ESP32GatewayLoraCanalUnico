@@ -1,3 +1,6 @@
+# Traduzido de:
+- Original: https://ldsrc.blogspot.com/2018/01/lorawan-working-example-from-network.html
+
 # ESP32SingleChannelGateway
 Um Fork do popular ESP8266 gateway canal único adaptado para ESP32 na frequência de 915Mhz banda.
 
@@ -5,25 +8,28 @@ Um Fork do popular ESP8266 gateway canal único adaptado para ESP32 na frequênc
 - Copie as bibliotecas(libraries) para ~/Documentos/Arduino/libraries
 - Para o nó lora, verifique na biblioteca lmic o arquivo config.h e tenha certeza que a banda está em 915Mhz apenas.
 
-# Traduzir depois:
-- Original: https://ldsrc.blogspot.com/2018/01/lorawan-working-example-from-network.html
-Just listing the things I did to get it working (hopefully useful for others)
-- install Arduino IDE https://www.arduino.cc/en/Main/Software3
-- install ESP8266 core as per github https://github.com/esp8266/Arduino6
-- install ESP32 core as per github https://github.com/espressif/arduino-esp3210
-- Execute the Arduino IDE and goto “File->Preferences” and make a note of the “Sketchbook Location”. This is the “stub” folder which you will reference when loading folders/files (we will call it STUB from now on) It is usually something like “C:\Users???\Documents\arduino”.
-- Download ZIP file from https://github.com/kersing/ESP-1ch-Gateway-v5.025
-- Extract the ZIP file (preferably using 7-zip http://www.7-zip.org/1 )
-- Copy everything from the extracted file folder “libraries” and paste into STUB\libraries"
-- Copy folder “ESP-sc-gway” from the zip file and paste into “STUB\libraries”
-- Go to “STUB\libraries\ESP-sc-gway\ESP-sc-gway.h” and alter the code using “wordpad”.
-You need to update the following 3 sections
-1 Gateway Ident definitions
-(description, Lat long)
+# 1) Single Channel Gateway Usando Heltec WiFi LoRa 32 (Com OLED display)
+"Apenas leia as coisas que eu fiz para que isso funcionasse (Espero que funciona para os outros)
+	- Instale o Arduino IDE https://www.arduino.cc/en/Main/Software3
+	- Instale ESP8266 core em github https://github.com/esp8266/Arduino6
+	- Instale ESP32 core em github https://github.com/espressif/arduino-esp3210
+	- Execute o Arduino IDE e vá em “File → Preferences” (Arquivos → Preferências) e faça uma anotação da “Localização do Sketchbook”. Guarde esse “local”  para ser usada depois quando for carregar as pastas. Ele é algo como “C:\Users\...\Documents\arduino”. No Windows, ou “/home/User/.../Arduino” no Linux.
+	- Extraia o Zip.
+	- Copie tudo da pasta extraída “libraries” e cole no “local/libraries”.
+	- Copie as pastas “ESP-sc-gway” e “ESP-sc-node” da pasta Zip e cole em “local/libraries”
+	- Vá para “local/libraries/ESP-sc-gway.h” e altere o código usando um editor de texto. Você precisa mudar as 3 seguintes partes:
+
+
+1 Local do gateway
+(descrição, Lat (latitude),  long (longitude))
+
 2 ntp
-(for UK, change to NTP_TIMESERVER “uk.pool.ntp.org” and NTP_TIMEZONES 0
-3 definition of wpas wpa[]
-Change code from this: (change the wifi and passwd also take off the if-else-endif statement)
+(Mude a zona de tempo NTP_TIMESERVER “uk.pool.ntp.org” para UK, para serves no Brasil veja https://ntp.br/  e mude NTP_TIMEZONES 0
+
+3 Definição de  wpas wpa[]
+
+NO CÓDIGO VOCÊ VAI ENCONTRAR  ISSO:
+
 #if 0
 wpas wpa[] = {
 { “” , “” }, // Reserved for WiFi Manager
@@ -34,30 +40,37 @@ wpas wpa[] = {
 Place outside version control to avoid the risk of commiting it to github :wink:
 #include “d:\arduino\wpa.h”
 #endif
-to this
+
+MUDE PARA ISSO(mude também o WiFi e senha, também tire o if-else-endif):
+
 wpas wpa[] = {
 { "" , "" }, // Reserved for WiFi Manager
-{ "YOUR WIFI SSID", "YOUR WIFI SSID PASSWORD" },
+{ "SEU WIFI SSID", "SUA SENHA DO WIFI SSID" },
 {"",""}
 };
-Execute the Arduino IDE
-Ensure you have installed both the SPIFFS and U8G2 libraries as shown (ignore the others shown in this pic) using “Sketch->Include Library->Manage Libraries”
-spiffs_library
-spiffs_library.jpg792x454 74.9 KB
-u8g2
-u8g2.jpg801x279 83.3 KB
-Upload the sketch via “File->Examples->ESP-sc-gway”. Set up the port and upload into your Heltec WiFi LoRa 32 device, (when the device re-boots, you should see info displayed on the OLED)
-When the device has booted and logged into your wifi network, find the IP address it is using from your router and enter this IP address into a web browser to display a webpage of Gateway details - note the 8 byte “Gateway ID” (you need this for the TTN console)
-Log into the TTN console and setup a new gateway - You need to tick the “I’m using the legacy packet forwarder” checkbox and paste the 8 byte “Gateway ID” seen from the webpage.
-setup a few other things like frequency and save!
-thats it - amazing !!!
-2) Example TX code for HelTec Lora (for use with Gateway above)
-Download the zip file for LMIC https://github.com/matthijskooijman/arduino-lmic8
-unzip and rename folder “arduino-lmic-master” to “arduino-lmic” (there can be a clash with other versions of the “LMIC” library)
-Put the renamed “arduino-lmic” folder into the STUB/libraries
-(optional) If you have version problems when compiling the code, try removing the standard library called “IBM_LMIC_framework” from STUB/libraries (you can easily put it back using Sketch->Include Library->Manage Libraries)
-Copy and paste the preformatted text seen below into the Arduino IDE.
-The 3 lines that need changing are prefixed with “$$”. Remove the “$$” and replace the code using info defined in TTN - remember that in TTN, you can only switch the device from OTAA to ABP after you have saved the device in TTN!!! Once the device has been changed to “ABP”, you will then see the 3 codes in the console that you need to copy back to the Arduino code. i.e.
-For DEVADDR/Device Address - just copy the hex and add after the 0x in the code
-For NWKSKEY and APPSKEY - click the eye (show code) then the <> (C-style), click the “copy” button and then use that to paste into the code (do not press the ⇆ button and check that your showing MSB before copying!)
 
+Execute a IDE do Arduino.
+
+Upload o sketch via “File→Exemples→ESP-sc-gway”. Ou vá na pasta “local/libraries/ESP-sc-gway” e abra o arquivo “ESP-sc-gway.ino”. Coloque a porta certa da placa e faça o upload para seu Heltec WiFi LoRa 32 device, (Quando o aparelho fizer o re-boot, você vai ver a informação no display OLED).
+
+Quando o aparelho tiver bootado e logado na sua rede WiFi, ache o endereço IP, ele vai ser usado no seu roteador. Use esse IP no seu navegador Web para ver a webpage dos detalhes do Gateway. Anote os 8 byte “Gateway ID” (você vai precisar dele para o console TTN). Faça o Login no console do TTN e crie um novo gateway – você vai precisar marcas o “I’m using the legacy packet forwarder” checkbox e cole os 8 bytes “Gateway ID” da webpage.
+
+Mude outras coisas como frequência e salve (Aqui usados a 915).
+É isso - incrível!!!
+
+# 2) Exemplos de Código TX para HelTec Lora (para usar junto com Gateway)
+
+Essa biblioteca já deve estar na pasta de bibliotecas, mas caso dê algum erro de compilação, tente isso: Baixe a pasta Zip do LMIC em https://github.com/matthijskooijman/arduino-lmic8
+
+Extraia e renomeie a pasta “arduino-lmic-master” para “arduino-lmic” (isso pode ser um clash com outras versões da biblioteca “LMIC”)
+
+Coloque a pasta renomeada “arduino-lmic” na “local/libraries”.
+
+(opcional) se você tiver problemas com quando compilar o código, tente remover a  biblioteca chamada “IBM_LMIC_framework” do “local/libraries” (você pode facilmente pegar ela de volta usando o gerenciador de bibliotecas)
+
+Abra a pasta a pasta “ESP-sc-node.ino” em “local/ESP-sc-node”.
+
+As 3 linhas que você precisa mudar estão com o prefixo “$$”. Remova os “$$” e substitua o código usando as informações do TTN – Lembre que no TTN você pode apenas mudar o aparelho(Device) de “OTAA” para “ABP” dpeois de salvar o aparelho (Device) no TTN! Assim que o aparelho for trocado para “ABP”, você vai ver 3 códigos no console que você precisa copiar no código do arduino.
+
+Para DEVADDR/Device Address – apenas copie o hexadecimal e adiciona antes o 0x no código.
+Para NWKSKEY e APPSKEY – click no olho (show code) dai o <> (C-style), click em “copy” e use isso para colar no código ( não pressione o botão ⇆ e veja que sua exibição MSB antes de copiar!)."
