@@ -1,5 +1,9 @@
-# Esp32 in arduíno ide
+# Esp32 on arduino ide
 https://dl.espressif.com/dl/package_esp32_index.json
+
+# Esp32 Helltec LoRa on arduino IDE
+https://docs.heltec.cn/#/en/user_manual/how_to_install_esp32_Arduino
+
 
 # Single Channel Gateway Usando Heltec WiFi LoRa 32 (Com OLED display)
 
