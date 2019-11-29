@@ -1,3 +1,6 @@
+#Esp32 in arduíno ide
+https://dl.espressif.com/dl/package_esp32_index.json
+
 # Single Channel Gateway Usando Heltec WiFi LoRa 32 (Com OLED display)
 
 - [Arquivos](https://github.com/luisfelip80/ESP32GatewayLoraCanalUnico)
